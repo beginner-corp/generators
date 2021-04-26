@@ -1,0 +1,26 @@
+{
+  "name": "begin-generators",
+  "version": "1.0.0",
+  "description": "Generator functions for Begin",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tape ./test/*.test.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beginner-corp/generators.git"
+  },
+  "author": "kj <kj@begin.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/beginner-corp/generators/issues"
+  },
+  "homepage": "https://github.com/beginner-corp/generators#readme",
+  "devDependencies": {
+    "tap-spec": "^5.0.0",
+    "tape": "^5.2.2"
+  }
+}
