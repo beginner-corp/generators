@@ -5,7 +5,7 @@ exports.handler = arc.http.async(destroy)
 
 async function destroy (req) {
   await posts.destroy(req.params.postID)
-  return { 
-    location: '/posts' 
+  return {
+    location: '/posts'
   }
 }

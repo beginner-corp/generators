@@ -1,6 +1,6 @@
 let layout = require('@architect/views/layout')
 let form = require('@architect/views/post-form')
-let posts = require('@architect/shared/posts') 
+let posts = require('@architect/shared/posts')
 let arc = require('@architect/functions')
 
 exports.handler = arc.http.async(list)

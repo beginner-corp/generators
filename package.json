@@ -6,8 +6,12 @@
   "directories": {
     "test": "test"
   },
+  "eslintConfig": {
+    "extends": "@architect/eslint-config"
+  },
   "scripts": {
-    "test": "tape ./test/*.test.js | tap-spec"
+    "test": "tape ./test/*.test.js | tap-spec",
+    "lint": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -24,7 +28,8 @@
     "tape": "^5.2.2"
   },
   "dependencies": {
-    "fs-extra": "^9.1.0",
+    "@architect/eslint-config": "^1.0.0",
+    "eslint": "^7.25.0",
     "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2"
   }

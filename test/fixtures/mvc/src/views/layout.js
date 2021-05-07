@@ -1,4 +1,4 @@
-module.exports = function layout(body) {
+module.exports = function layout (body) {
   return `
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +39,7 @@ module.exports = function layout(body) {
   </style>
 </head>
 <body>
-${ body }
+${body}
 </body>
 </html>`
 }

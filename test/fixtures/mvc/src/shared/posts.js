@@ -14,7 +14,7 @@ async function read (postID) {
   return data.posts.get({ postID })
 }
 
-async function update(post) {
+async function update (post) {
   let data = await arc.tables()
   return data.posts.put(post)
 }
