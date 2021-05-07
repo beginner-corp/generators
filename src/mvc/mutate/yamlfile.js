@@ -1,4 +1,3 @@
-module.exports = function yamlfile (params) {
+module.exports = function yamlfile () {
   throw Error('yamlfile not implemented')
 }
-

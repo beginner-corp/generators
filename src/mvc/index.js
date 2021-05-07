@@ -49,4 +49,3 @@ function parse (params) {
     rest: [ { name: 'title', type: 'string' }, { name: 'content', type: 'text' } ]
   }
 }
-

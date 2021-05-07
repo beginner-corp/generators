@@ -1,4 +1,4 @@
-module.exports = function ({ model, plural }) {
+module.exports = function ({ plural }) {
   return `let arc = require('@architect/functions')
 let posts = require('@architect/shared/${plural}')
 

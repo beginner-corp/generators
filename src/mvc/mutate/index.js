@@ -1,4 +1,5 @@
 let fs = require('fs')
+let path = require('path')
 let arcfile = require('./arcfile')
 let jsonfile = require('./jsonfile')
 let pkgfile = require('./pkgfile')
