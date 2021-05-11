@@ -30,6 +30,7 @@ module.exports = function mutateArcfile (params) {
 
   // look in package.json
   if (fs.existsSync(pkg)) {
+    // eslint-disable-next-line
     let p = require(pkg)
     if (p.arc || p.architect) {
       pkgfile(params)

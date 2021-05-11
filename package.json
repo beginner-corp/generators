@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@architect/eslint-config": "^1.0.0",
+    "@architect/parser": "^3.0.1",
     "eslint": "^7.25.0",
     "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2"
