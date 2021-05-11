@@ -11,7 +11,7 @@ async function list () {
   let result = await ${plural}.list()
   let ul = result.map(${model}=> \`<li><a href=/${plural}/\${ ${model}.${hashkey} }>\${ ${model}.${rest[0].name} }</a>\`).join('')
   return {
-    html: layout(\`${form()}<ul>${ul}</ul>\`)
+    html: layout(\`\${form()}<ul>\${ul}</ul>\`)
   }
 }`
 }

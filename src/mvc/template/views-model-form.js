@@ -20,7 +20,7 @@ module.exports = function form (${model}) {
       <button>destroy</button>
     </form>\`
   }
-  
+
   return form
 }`
 }
@@ -37,7 +37,7 @@ function renderParams (params) {
     }
 
     if (p.type === 'text') {
-      s += `<textarea name=${p.name} required>${post.value}</textarea>`
+      s += `<textarea name=${p.name} required>${p.value}</textarea>`
     }
 
     s += `</label>`

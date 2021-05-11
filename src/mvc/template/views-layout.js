@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = function () {
   return `
 module.exports = function layout(body) {
   return \`
@@ -12,5 +12,5 @@ module.exports = function layout(body) {
 \${ body }
 </body>
 </html>\`
-}
+}`
 }
