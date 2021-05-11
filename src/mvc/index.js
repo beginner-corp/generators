@@ -1,4 +1,6 @@
+let path = require('path')
 let fs = require('fs')
+let mkdir = require('mkdirp')
 let mutate = require('./mutate')
 let create = require('./template/create-model')
 let destroy = require('./template/delete-model')
@@ -11,12 +13,10 @@ let update = require('./template/update-model')
 let layout = require('./template/views-layout')
 let form = require('./template/views-model-form')
 
-module.exports = function mvc (params) {
-
-  let { dest, model, hashkey, plural } = parse(params)
+module.exports = function mvc ({ dest, model, hashkey, plural, rest }) {
 
   // first try to handle the arcfile
-  mutate({ plural, hashkey })
+  mutate({ dest, plural, hashkey })
 
   // now generate the mvc
   let files = [
@@ -32,20 +32,11 @@ module.exports = function mvc (params) {
     { where: `${dest}/package.json`,                                             what: packagejson },
   ]
 
-  for (let file of files)
-    if (!fs.existsSync(file.where))
-      fs.writeFileSync(file.where, file.what(params))
-}
-
-/** helper to get params from cli args */
-function parse (params) {
-  // syntax: arc g mvc posts postID:string title:string content:text
-  // required: model name, hashkey:string and at least one other param
-  return {
-    dest: params.dest,
-    model: 'post',
-    hashkey: 'postID',
-    plural: 'posts',
-    rest: [ { name: 'title', type: 'string' }, { name: 'content', type: 'text' } ]
+  for (let file of files) {
+    if (!fs.existsSync(file.where)) {
+      mkdir.sync(path.dirname(file.where))
+      fs.writeFileSync(file.where, file.what({ dest, model, hashkey, plural, rest }))
+    }
   }
 }
+

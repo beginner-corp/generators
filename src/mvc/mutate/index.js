@@ -8,6 +8,8 @@ let tomlfile = require('./tomlfile')
 
 module.exports = function mutateArcfile (params) {
 
+  console.log({ params })
+
   let app = path.join(params.dest, 'app.arc')
   let hidden = path.join(params.dest, '.arc')
   let json = path.join(params.dest, 'arc.json')

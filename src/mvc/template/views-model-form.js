@@ -1,4 +1,4 @@
-module.exports = function ({ model, hashkey, plural, params }) {
+module.exports = function ({ model, hashkey, plural, rest }) {
   return `
 module.exports = function form (${model}) {
 
@@ -10,7 +10,7 @@ module.exports = function form (${model}) {
   }
 
   form += \`
-    ${renderParams(params)}
+    ${renderParams(rest)}
     <button>Save</button>
   </form>\`
 

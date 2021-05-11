@@ -1,32 +1,39 @@
-// const fs = require('fs')
+const fs = require('fs')
 // const promisify = require('util').promisify
-// const path = require('path')
+const path = require('path')
 const test = require('tape')
 // const rimraf = require('rimraf')
-// const mkdirp = require('mkdirp')
+const mkdirp = require('mkdirp')
 const mvc = require('../src/mvc')
 // const rmrf = promisify(rimraf)
-// const tmp = path.join(process.cwd(), 'tmp')
+const tmp = path.join(process.cwd(), 'tmp')
 
 test('exists', t => {
   t.plan(1)
   t.ok(mvc)
 })
 
-/*
-test('setup', async t=> {
+test('setup', async t => {
   t.plan(1)
   await mkdirp(tmp)
   t.ok(true)
 })
 
-test('index.html was created', async t => {
+test('index.html was created', t => {
+  console.log(tmp)
   t.plan(1)
-  staticGenerator({dest: tmp})
+  mvc({
+    dest: tmp,
+    model: 'post',
+    hashkey: 'postID',
+    plural: 'posts',
+    rest: [ { name: 'title', type: 'string' }, { name: 'content', type: 'text' } ]
+  })
   t.ok(fs.existsSync(tmp))
 })
 
-test('cleanup', async t=> {
+/*
+test('cleanup', async t => {
   t.plan(1)
   await rmrf(tmp)
   t.ok(true)
