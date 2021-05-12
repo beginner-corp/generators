@@ -1,11 +1,11 @@
 const fs = require('fs')
-// const promisify = require('util').promisify
+const promisify = require('util').promisify
 const path = require('path')
 const test = require('tape')
-// const rimraf = require('rimraf')
+const rimraf = require('rimraf')
 const mkdirp = require('mkdirp')
 const mvc = require('../src/mvc')
-// const rmrf = promisify(rimraf)
+const rmrf = promisify(rimraf)
 const tmp = path.join(process.cwd(), 'tmp')
 
 test('exists', t => {
@@ -32,10 +32,10 @@ test('index.html was created', t => {
   t.ok(fs.existsSync(tmp))
 })
 
-/*
+
 test('cleanup', async t => {
   t.plan(1)
   await rmrf(tmp)
   t.ok(true)
-})*/
+})
 

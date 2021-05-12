@@ -12,10 +12,10 @@ function arcfile ({ dest, plural, hashkey }) {
 
   tokens = addTable({ tokens, name: plural, hashkey })
   tokens = addRoute({ tokens, verb: 'post', path: `/${plural}/:${hashkey}/destroy` })
-  // tokens = addRoute({ tokens, verb: 'post', path: `/${plural}/:${hashkey}` })
-  // tokens = addRoute({ tokens, verb: 'post', path: `/${plural}` })
-  // tokens = addRoute({ tokens, verb: 'get', path: `/${plural}/:${hashkey}` })
-  // tokens = addRoute({ tokens, verb: 'get', path: `/${plural}` })
+  tokens = addRoute({ tokens, verb: 'post', path: `/${plural}/:${hashkey}` })
+  tokens = addRoute({ tokens, verb: 'post', path: `/${plural}` })
+  tokens = addRoute({ tokens, verb: 'get', path: `/${plural}/:${hashkey}` })
+  tokens = addRoute({ tokens, verb: 'get', path: `/${plural}` })
 
   fs.writeFileSync(fs.existsSync(app) ? app : hidden, serialize(tokens))
 }
@@ -41,7 +41,7 @@ function addRoute ({ tokens, verb, path }) {
 
 // helper for adding a table
 function addTable ({ tokens, name, hashkey }) {
-  let found = tokens.indexOf( t => t.type === 'pragma' && t.value === 'tables')
+  let found = tokens.findIndex( t => t.type === 'pragma' && t.value === 'tables')
   tokens.splice(found + 2, 0, { type: 'string', value: name })
   tokens.splice(found + 3, 0, { type: 'newline', value: '\n' })
   tokens.splice(found + 4, 0, { type: 'space', value: ' ' })
