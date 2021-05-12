@@ -10,7 +10,7 @@
     "extends": "@architect/eslint-config"
   },
   "scripts": {
-    "test": "npm run lint && tape ./test/mvc-test.js | tap-spec",
+    "test": "npm run lint && tape ./test/*-test.js | tap-spec",
     "lint": "eslint . --fix"
   },
   "repository": {

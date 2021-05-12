@@ -8,8 +8,6 @@ let tomlfile = require('./tomlfile')
 
 module.exports = function mutateArcfile (params) {
 
-  console.log({ params })
-
   let app = path.join(params.dest, 'app.arc')
   let hidden = path.join(params.dest, '.arc')
   let json = path.join(params.dest, 'arc.json')
@@ -53,7 +51,7 @@ module.exports = function mutateArcfile (params) {
   }
 
   // if we made it here no arcfile was found; so write a default one
-  fs.writeFileSync(app, `@app\nmvc\n\n@http`)
+  fs.writeFileSync(app, `@app\nmvc\n\n@http\n\n@tables`)
 
   // and mutate that
   arcfile(params)
