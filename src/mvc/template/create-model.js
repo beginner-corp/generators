@@ -1,6 +1,6 @@
-module.exports = function ({ plural }) {
+module.exports = function ({ model, plural }) {
   return `let arc = require('@architect/functions')
-let ${plural} = require('@architect/shared/${plural}')
+let posts = require('@architect/shared/${model}')
 
 exports.handler = arc.http.async(create)
 

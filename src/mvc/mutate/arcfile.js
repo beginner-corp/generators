@@ -16,6 +16,7 @@ function arcfile ({ dest, plural, hashkey }) {
   tokens = addRoute({ tokens, verb: 'post', path: `/${plural}` })
   tokens = addRoute({ tokens, verb: 'get', path: `/${plural}/:${hashkey}` })
   tokens = addRoute({ tokens, verb: 'get', path: `/${plural}` })
+  tokens = addRoute({ tokens, verb: 'get', path: `/` })
 
   fs.writeFileSync(fs.existsSync(app) ? app : hidden, serialize(tokens))
 }

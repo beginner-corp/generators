@@ -1,15 +1,15 @@
 module.exports = function ({ model, plural, hashkey }) {
   return `let layout = require('@architect/views/layout')
 let form = require('@architect/views/${model}-form')
-let ${plural} = require('@architect/shared/${plural}.js')
+let ${model} = require('@architect/shared/${model}.js')
 let arc = require('@architect/functions')
 
 exports.handler = arc.http.async(list)
 
 async function list (req) {
-  let ${model} = await ${plural}.read(req.params.${hashkey})
+  let result = await ${model}.list()
   return {
-    html: layout(form(${model}))
+    html: layout(form(result))
   }
 }`
 }

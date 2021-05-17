@@ -2,10 +2,10 @@ const test = require('tape')
 const staticGenerator = require('../src/static')
 const fs = require('fs')
 const path = require('path')
-const { promisify } = require('util')
-const rimraf = require('rimraf')
+// const { promisify } = require('util')
+// const rimraf = require('rimraf')
 const mkdirp = require('mkdirp')
-const rmrf = promisify(rimraf)
+// const rmrf = promisify(rimraf)
 const tmp = path.join(process.cwd(), 'tmp')
 
 test('static generator exists', t => {
@@ -25,8 +25,8 @@ test('index.html was created', t => {
   t.ok(fs.existsSync(tmp))
 })
 
-test('cleanup', async t => {
-  t.plan(1)
-  await rmrf(tmp)
-  t.ok(true)
-})
+// test('cleanup', async t => {
+//   t.plan(1)
+//   await rmrf(tmp)
+//   t.ok(true)
+// })

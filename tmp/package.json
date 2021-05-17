@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "@architect/functions": "latest",
-    "@architect/sandbox": "latest"
-  },
-  "devDependencies": {
-    "@architect/architect": "^8.5.11"
-  }
-}

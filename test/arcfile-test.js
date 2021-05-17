@@ -3,7 +3,7 @@ const addRoute = arcfile.addRoute
 const addTable = arcfile.addTable
 const test = require('tape')
 
-test('exists', t => {
+test('add route exists', t => {
   t.plan(1)
   t.ok(addRoute)
 })
