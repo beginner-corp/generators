@@ -27,17 +27,18 @@ module.exports = function form (${model}) {
 
 // { name: 'title', type: 'string', value: 'my cool blogpost' }
 function renderParams (params) {
+
   let s = ''
 
   for (let p of params) {
     s += `<label for=${p.name}>${p.name}`
 
     if (p.type === 'string') {
-      s += `<input type=text name=${p.name} value=${p.value} required>`
+      s += `<input type=text name=${p.name} required>`
     }
 
     if (p.type === 'text') {
-      s += `<textarea name=${p.name} required>${p.value}</textarea>`
+      s += `<textarea name=${p.name} required></textarea>`
     }
 
     s += `</label>`

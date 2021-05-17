@@ -12,5 +12,5 @@ module.exports = function ({ plural }) {
     body: layout(\`<a href = /${plural}>${plural}</a>\`)
   }
 }
-  `
+`
 }

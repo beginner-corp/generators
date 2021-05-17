@@ -26,7 +26,7 @@ module.exports = function mvc ({ dest, model, hashkey, plural, rest }) {
     { where: `${dest}/src/http/post-${plural}-000${hashkey}-destroy/index.js`, what: destroy },
     { where: `${dest}/src/http/post-${plural}-000${hashkey}/index.js`,         what: update },
     { where: `${dest}/src/http/post-${plural}/index.js`,                       what: create },
-    { where: `${dest}/src/shared/${model}.js`,                                 what: crud },
+    { where: `${dest}/src/shared/${plural}.js`,                                 what: crud },
     { where: `${dest}/src/views/layout.js`,                                      what: layout },
     { where: `${dest}/src/views/${model}-form.js`,                               what: form },
     { where: `${dest}/package.json`,                                             what: packagejson },
@@ -39,4 +39,3 @@ module.exports = function mvc ({ dest, model, hashkey, plural, rest }) {
     }
   }
 }
-

@@ -19,8 +19,8 @@ test('get index returns string', t => {
     },
     body: layout(\`<a href = /posts>posts</a >\`)
   }
-}`
-
+}
+`
   t.plan(1)
   t.deepEquals(getIndex({ 'plural': 'posts' }), expected)
 })

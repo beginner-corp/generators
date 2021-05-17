@@ -1,4 +1,4 @@
-module.exports = function ({ model, plural, hashkey, rest }) {
+module.exports = function ({ model, plural}) {
   return `
 let layout = require('@architect/views/layout')
 let form = require('@architect/views/${model}-form')
@@ -7,11 +7,10 @@ let arc = require('@architect/functions')
 
 exports.handler = arc.http.async(list)
 
-async function list () {
-  let result = await ${plural}.list()
-  let ul = result.map(${model}=> \`<li><a href=/${plural}/\${ ${model}.${hashkey} }>\${ ${model}.${rest[0].name} }</a>\`).join('')
+async function list (req) {
+  let post = await posts.read(req.params.postID)
   return {
-    html: layout(\`\${form()}<ul>\${ul}</ul>\`)
+    html: layout(form(post))
   }
 }`
 }

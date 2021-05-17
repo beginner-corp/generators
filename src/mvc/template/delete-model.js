@@ -1,5 +1,5 @@
-module.exports = function ({ model, plural, hashkey }) {
-  return `let ${plural} = require('@architect/shared/${model}')
+module.exports = function ({ plural, hashkey }) {
+  return `let ${plural} = require('@architect/shared/${plural}')
 let arc = require('@architect/functions')
 
 exports.handler = arc.http.async(destroy)
