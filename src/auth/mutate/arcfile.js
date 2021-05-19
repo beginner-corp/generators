@@ -3,19 +3,20 @@ let fs = require('fs')
 let { lexer } = require('@architect/parser')
 
 // mutate the arcfile
-function arcfile ({ dest, plural, hashkey }) {
+function arcfile ({ dest }) {
 
   let app = path.join(dest, 'app.arc')
   let hidden = path.join(dest, '.arc')
   let raw = fs.readFileSync(fs.existsSync(app) ? app : hidden)
   let tokens = lexer(raw)
 
-  tokens = addTable({ tokens, name: plural, hashkey })
-  tokens = addRoute({ tokens, verb: 'post', path: `/${plural}/:${hashkey}/destroy` })
-  tokens = addRoute({ tokens, verb: 'post', path: `/${plural}/:${hashkey}` })
-  tokens = addRoute({ tokens, verb: 'post', path: `/${plural}` })
-  tokens = addRoute({ tokens, verb: 'get', path: `/${plural}/:${hashkey}` })
-  tokens = addRoute({ tokens, verb: 'get', path: `/${plural}` })
+  // tokens = addTable({ tokens, name: plural, hashkey })
+  tokens = addRoute({ tokens, verb: 'post', path: `/login` })
+  tokens = addRoute({ tokens, verb: 'post', path: `/register` })
+  tokens = addRoute({ tokens, verb: 'get', path: `/admin` })
+  tokens = addRoute({ tokens, verb: 'get', path: `/login` })
+  tokens = addRoute({ tokens, verb: 'get', path: `/register` })
+  tokens = addRoute({ tokens, verb: 'get', path: `/logout` })
   tokens = addRoute({ tokens, verb: 'get', path: `/` })
 
   fs.writeFileSync(fs.existsSync(app) ? app : hidden, serialize(tokens))

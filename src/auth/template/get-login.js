@@ -1,14 +1,15 @@
-let arc = require('@architect/functions')
+module.exports = function () {
+  return `let arc = require('@architect/functions')
 let layout = require('@architect/views/layout')
 
 exports.handler = arc.http.async(login)
 
-let loginForm = `
+let loginForm = \`
   <form action=/login method=post>
-    <input name=email type=email placeholder="add your email" required>
+    <input name=email type=email placeholder="add your email" required >
     <input name=password type=password required>
     <button> Login </button>
-  </form>`
+  </form>\`
 
 async function login(req) {
   return {
@@ -17,4 +18,5 @@ async function login(req) {
       body: loginForm
     })
   }
+}`
 }

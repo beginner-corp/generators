@@ -1,6 +1,7 @@
 const arcfile = require('../src/mvc/mutate/arcfile')
 const addRoute = arcfile.addRoute
 const addTable = arcfile.addTable
+const serialize = arcfile.serialize
 const test = require('tape')
 
 test('add route exists', t => {
@@ -48,4 +49,27 @@ test('adds a table', t => {
 
   t.deepEquals(addTable({ tokens, name: 'Shawn', hashkey: '555555' }), expected)
   t.end()
+})
+
+test('serialize should exist', t => {
+  t.plan(1)
+  t.ok(serialize, 'serialize exists')
+})
+
+test('serialize should turn tokens into string', t => {
+  const tokens = [
+    { type: 'pragma', value: 'app', line: 1, column: 1 },
+    { type: 'newline', value: '\n' },
+    { type: 'pragma', value: 'http', line: 4, column: 1 },
+    { type: 'newline', value: '\n' },
+    { type: 'string', value: 'get' },
+    { type: 'space', value: ' ' },
+  ]
+  const expected = `@app
+@http
+get `
+
+  t.plan(1)
+  t.deepEqual(serialize(tokens), expected)
+
 })
