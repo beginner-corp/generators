@@ -10,7 +10,7 @@ function arcfile ({ dest }) {
   let raw = fs.readFileSync(fs.existsSync(app) ? app : hidden)
   let tokens = lexer(raw)
 
-  // tokens = addTable({ tokens, name: plural, hashkey })
+  tokens = addTable({ tokens })
   tokens = addRoute({ tokens, verb: 'post', path: `/login` })
   tokens = addRoute({ tokens, verb: 'post', path: `/register` })
   tokens = addRoute({ tokens, verb: 'get', path: `/admin` })
@@ -42,17 +42,33 @@ function addRoute ({ tokens, verb, path }) {
 }
 
 // helper for adding a table
-function addTable ({ tokens, name, hashkey }) {
+// data
+//   scopeID *String
+//   dataID **String
+//   ttl TTL
+function addTable ({ tokens }) {
   let found = tokens.findIndex( t => t.type === 'pragma' && t.value === 'tables')
-  tokens.splice(found + 2, 0, { type: 'string', value: name })
+  tokens.splice(found + 2, 0, { type: 'string', value: 'data' })
   tokens.splice(found + 3, 0, { type: 'newline', value: '\n' })
   tokens.splice(found + 4, 0, { type: 'space', value: ' ' })
   tokens.splice(found + 5, 0, { type: 'space', value: ' ' })
-  tokens.splice(found + 6, 0, { type: 'string', value: hashkey })
+  tokens.splice(found + 6, 0, { type: 'string', value: 'scopeID' })
   tokens.splice(found + 7, 0, { type: 'space', value: ' ' })
   tokens.splice(found + 8, 0, { type: 'string', value: '*String' })
   tokens.splice(found + 9, 0, { type: 'newline', value: '\n' })
-  tokens.splice(found + 10, 0, { type: 'newline', value: '\n' })
+  tokens.splice(found + 10, 0, { type: 'space', value: ' ' })
+  tokens.splice(found + 11, 0, { type: 'space', value: ' ' })
+  tokens.splice(found + 12, 0, { type: 'string', value: 'dataID' })
+  tokens.splice(found + 13, 0, { type: 'space', value: ' ' })
+  tokens.splice(found + 14, 0, { type: 'string', value: '**String' })
+  tokens.splice(found + 15, 0, { type: 'newline', value: '\n' })
+  tokens.splice(found + 16, 0, { type: 'space', value: ' ' })
+  tokens.splice(found + 17, 0, { type: 'space', value: ' ' })
+  tokens.splice(found + 18, 0, { type: 'string', value: 'ttl' })
+  tokens.splice(found + 19, 0, { type: 'space', value: ' ' })
+  tokens.splice(found + 20, 0, { type: 'string', value: 'TTL' })
+
+
   return tokens
 }
 

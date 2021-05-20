@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Generator functions for Begin",
   "main": "index.js",
+  "bin": {
+    "arc-gen-beta": "cli.js"
+  },
   "directories": {
     "test": "test"
   },
