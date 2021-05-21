@@ -42,10 +42,6 @@ function addRoute ({ tokens, verb, path }) {
 }
 
 // helper for adding a table
-// data
-//   scopeID *String
-//   dataID **String
-//   ttl TTL
 function addTable ({ tokens }) {
   let found = tokens.findIndex( t => t.type === 'pragma' && t.value === 'tables')
   tokens.splice(found + 2, 0, { type: 'string', value: 'data' })
@@ -67,7 +63,6 @@ function addTable ({ tokens }) {
   tokens.splice(found + 18, 0, { type: 'string', value: 'ttl' })
   tokens.splice(found + 19, 0, { type: 'space', value: ' ' })
   tokens.splice(found + 20, 0, { type: 'string', value: 'TTL' })
-
 
   return tokens
 }
