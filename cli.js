@@ -1,11 +1,10 @@
 #! /usr/bin/env node
 const path = require('path')
 const mkdirp = require('mkdirp')
+
 const auth = require('./src/auth')
 const mvc = require('./src/mvc')
 const static = require('./src/static')
-
-// const tmp = path.join(process.cwd(), 'tmp')
 
 const argv = require('yargs/yargs')(process.argv.slice(2))
   .usage('Welcome to the Architect Generator Beta')
@@ -46,6 +45,7 @@ async function cli () {
   if (argv._[0] === 'mvc') {
     let tmp = path.join(process.cwd(), argv.dest)
     await mkdirp(tmp)
+    console.log(argv.model)
     await mvc({
       dest: tmp,
       model: 'post',

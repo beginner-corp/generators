@@ -1,7 +1,7 @@
 {
-  "name": "begin-generators",
+  "name": "arc-gen-beta",
   "version": "1.0.0",
-  "description": "Generator functions for Begin",
+  "description": "Generator functions for Architect",
   "main": "index.js",
   "bin": {
     "arc-gen-beta": "cli.js"
