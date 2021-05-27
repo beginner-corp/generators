@@ -8,21 +8,21 @@ const static = require('./src/static')
 
 const argv = require('yargs/yargs')(process.argv.slice(2))
   .usage('Welcome to the Architect Generator Beta')
-  .help('help').alias('help', 'h')
   .command('mvc', 'generates mvc example')
   .command('auth', 'generates auth example')
   .command('static', 'generates static example')
   .options({
     'd': {
       alias: 'dest',
-      demandOption: true,
-      default: 'tmp',
+      demandOption: false,
+      default: './',
       describe: 'destination path',
       type: 'string'
     }
   })
-  .showHelpOnFail(false, 'whoops, something went wrong! run with --help')
+  .help('help').alias('help', 'h')
   .argv
+
 
 if (require.main === module) {
   (async function main (){
@@ -45,7 +45,6 @@ async function cli () {
   if (argv._[0] === 'mvc') {
     let tmp = path.join(process.cwd(), argv.dest)
     await mkdirp(tmp)
-    console.log(argv.model)
     await mvc({
       dest: tmp,
       model: 'post',
@@ -63,4 +62,5 @@ async function cli () {
     console.log('created static example')
   }
 
+  console.log('Welcome to the Architect Generator Beta \nrun this command with --help to see info')
 }
