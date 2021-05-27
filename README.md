@@ -2,7 +2,9 @@
 
 This is an experimental project to create a scaffolding tool for Architect apps. We welcome you to try it, find bugs, and report them to the issue tracker.
 
-This cli tool was created to save users time in creating basic app templates from the command line. Currently there are three example apps that you can create: auth, mvc, and static
+This cli tool was created to save users time in creating basic app templates from the command line. Currently there are three example apps that you can create: auth, mvc, and static.
+
+We plan to extend this with feedback from the community and welcome all your input.
 
 
 ## Installation
@@ -24,6 +26,12 @@ arc-gen-beta static
 `mvc` will create a template blog that allows users to perform CRUDL operations on blog posts
 `auth` will create a template app with an email login and registration system
 `static` will create a template app of a single `index.html` file that represents a static site.
+
+You can specify a destination directory to install the generated files to with a flag `-d` or `--dest`
+Example:
+```bash
+arc-gen-beta mvc -d mydir
+```
 
 ## Project structure
 - src contains individual generators that are called by the wrapping command line utility

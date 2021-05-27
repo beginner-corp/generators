@@ -13,7 +13,7 @@
     "extends": "@architect/eslint-config"
   },
   "scripts": {
-    "test": "tape ./test/cli-test.js | tap-spec",
+    "test": "tape ./test/*-test.js | tap-spec",
     "lint": "eslint . --fix"
   },
   "repository": {

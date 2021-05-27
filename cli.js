@@ -35,6 +35,8 @@ module.exports = cli
 
 async function cli () {
 
+  console.log('Welcome to the Architect Generator Beta \nrun this command with --help to see info')
+
   if (argv._[0] === 'auth') {
     let tmp = path.join(process.cwd(), argv.dest)
     await mkdirp(tmp)
@@ -62,5 +64,5 @@ async function cli () {
     console.log('created static example')
   }
 
-  console.log('Welcome to the Architect Generator Beta \nrun this command with --help to see info')
+
 }

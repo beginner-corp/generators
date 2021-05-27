@@ -1,11 +1,11 @@
 const test = require('tape')
 const auth = require('../src/auth')
 const fs = require('fs')
-// const promisify = require('util').promisify
+const promisify = require('util').promisify
 const path = require('path')
-// const rimraf = require('rimraf')
+const rimraf = require('rimraf')
 const mkdirp = require('mkdirp')
-// const rmrf = promisify(rimraf)
+const rmrf = promisify(rimraf)
 const tmp = path.join(process.cwd(), 'tmp')
 
 test('exists', t => {
@@ -29,8 +29,8 @@ test('auth app was created', t => {
 })
 
 
-// test('cleanup', async t => {
-//   t.plan(1)
-//   await rmrf(tmp)
-//   t.ok(true)
-// })
+test('cleanup', async t => {
+  t.plan(1)
+  await rmrf(tmp)
+  t.ok(true)
+})
