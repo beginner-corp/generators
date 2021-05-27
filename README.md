@@ -34,6 +34,8 @@ Example:
 ```bash
 arc-gen-beta mvc -d mydir
 ```
+Once the project is generated, it can be inspected and then users will have to run `npm install` and `npm start` or `arc sandbox` to start the project locally. 
+
 
 ## Project structure
 - src contains individual generators that are called by the wrapping command line utility
