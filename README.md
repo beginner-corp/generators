@@ -23,8 +23,10 @@ arc-gen-beta auth
 arc-gen-beta static
 ```
 
-`mvc` will create a template blog that allows users to perform CRUDL operations on blog posts
-`auth` will create a template app with an email login and registration system
+`mvc` will create a template blog that allows users to perform CRUDL operations on blog posts.
+
+`auth` will create a template app with an email login and registration system.
+
 `static` will create a template app of a single `index.html` file that represents a static site.
 
 You can specify a destination directory to install the generated files to with a flag `-d` or `--dest`
