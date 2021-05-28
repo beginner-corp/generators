@@ -21,6 +21,7 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
     }
   })
   .help('help').alias('help', 'h')
+  .demandCommand(1, '')
   .argv
 
 
