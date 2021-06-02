@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+module.exports = function () {
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -9,4 +10,5 @@
 <body>
   Welcome to your static site
 </body>
-</html>
+</html>`
+}
