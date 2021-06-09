@@ -10,15 +10,6 @@ function arcfile ({ dest }) {
   let raw = fs.readFileSync(fs.existsSync(app) ? app : hidden)
   let tokens = lexer(raw)
 
-  // tokens = addTable({ tokens })
-  // tokens = addRoute({ tokens, verb: 'post', path: `/login` })
-  // tokens = addRoute({ tokens, verb: 'post', path: `/register` })
-  // tokens = addRoute({ tokens, verb: 'get', path: `/admin` })
-  // tokens = addRoute({ tokens, verb: 'get', path: `/login` })
-  // tokens = addRoute({ tokens, verb: 'get', path: `/register` })
-  // tokens = addRoute({ tokens, verb: 'get', path: `/logout` })
-  // tokens = addRoute({ tokens, verb: 'get', path: `/` })
-
   fs.writeFileSync(fs.existsSync(app) ? app : hidden, serialize(tokens))
 }
 

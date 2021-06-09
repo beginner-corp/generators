@@ -51,7 +51,7 @@ module.exports = function mutateArcfile (params) {
   }
 
   // if we made it here no arcfile was found; so write a default one
-  fs.writeFileSync(app, `@app\nstatic\n\n@static`)
+  fs.writeFileSync(app, `@app\nstatic-generator\n\n@static\n\n@http\n\n@tables`)
 
   // and mutate that
   arcfile(params)

@@ -16,12 +16,12 @@ let mutate = require('./mutate')
 let index = require('./template/index')
 let packagejson = require('./template/package-json')
 
-module.exports = function auth({ dest }) {
+module.exports = function auth ({ dest }) {
 
   // first try to handle the arcfile
   mutate({ dest })
 
-  // now generate the auth
+  // now generate the static template
   let files = [
     { where: `${dest}/public/index.html`, what: index },
     { where: `${dest}/package.json`, what: packagejson },
@@ -34,8 +34,3 @@ module.exports = function auth({ dest }) {
     }
   }
 }
-
-
-
-
-// ask about git
