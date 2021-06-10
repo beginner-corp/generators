@@ -8,5 +8,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@architect/architect": "^8.5.12"
+  },
+  "dependencies": {
+    "@architect/functions": "^3.13.11",
+    "@begin/data": "^2.0.1",
+    "bcryptjs": "^2.4.3"
+  }
 }
